@@ -6,15 +6,21 @@ Deno.test({
   name: "demo day2",
   fn: () => {
     const input = [
-      "forward 5",
-      "down 5",
-      "forward 8",
-      "up 3",
-      "down 8",
-      "forward 2",
+      "00100",
+      "11110",
+      "10110",
+      "10111",
+      "10101",
+      "01111",
+      "00111",
+      "11100",
+      "10000",
+      "11001",
+      "00010",
+      "01010",
     ];
     const sol = solve(input);
-    assertEquals(sol, 900);
+    assertEquals(sol, 230);
   },
 });
 
@@ -23,6 +29,6 @@ Deno.test({
   fn: () => {
     const input = readAll("./input");
     const sol = solve(input);
-    assertEquals(sol, 1942068080);
+    assertEquals(sol, 2135254);
   },
 });
