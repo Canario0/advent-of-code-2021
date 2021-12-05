@@ -1,4 +1,4 @@
-import { solve } from "./part1.ts";
+import { solve } from "./part2.ts";
 import { assertEquals } from "https://deno.land/std@0.116.0/testing/asserts.ts";
 import { readAll } from "../utils.ts";
 
@@ -25,7 +25,7 @@ Deno.test({
   fn: () => {
     const input = parseInput("./input_test");
     const sol = solve(input);
-    assertEquals(sol, 4512);
+    assertEquals(sol, 1924);
   },
 });
 
