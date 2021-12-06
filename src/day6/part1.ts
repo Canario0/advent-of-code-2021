@@ -1,6 +1,6 @@
 class FishGroup {
   timer = 0;
-  readonly fishCount: number;
+  fishCount: number;
 
   constructor(timer: number, fishCount: number) {
     this.timer = timer;
@@ -10,7 +10,7 @@ class FishGroup {
   updateTimer(): FishGroup | null {
     if (!this.timer) {
       this.timer = 6;
-      return this.giveBirth()
+      return this.giveBirth();
     }
     this.timer--;
     return null;
@@ -32,11 +32,25 @@ export function solve(days: number, fishes: number[]): number {
       .entries()
   ).map(([timer, fishCount]) => new FishGroup(timer, fishCount));
   for (let day = 0; day < days; day++) {
-    fishGroups = fishGroups.concat(
+    fishGroups = Array.from(
       fishGroups
-        .map((fishGroup) => fishGroup.updateTimer())
-        .filter((fishGroups) => fishGroups != null) as FishGroup[]
+        .concat(
+          fishGroups
+            .map((fishGroup) => fishGroup.updateTimer())
+            .filter((fishGroups) => fishGroups != null) as FishGroup[]
+        )
+        .reduce((acc, fishGroup) => {
+          if (!acc.get(fishGroup.timer)) {
+            acc.set(fishGroup.timer, fishGroup);
+          } else {
+            acc.get(fishGroup.timer)!.fishCount += fishGroup.fishCount;
+          }
+          return acc;
+        }, new Map<number, FishGroup>())
+        .values()
     );
   }
-  return fishGroups.map((fishGroup) => fishGroup.fishCount).reduce((acc, val) => acc +  val, 0);
+  return fishGroups
+    .map((fishGroup) => fishGroup.fishCount)
+    .reduce((acc, val) => acc + val, 0);
 }
