@@ -1,9 +1,9 @@
 # Advent of code 2021
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/badge/day%20📅-14-blue)
-![](https://img.shields.io/badge/stars%20⭐-12-yellow)
-![](https://img.shields.io/badge/days%20completed-6-red)
+![](https://img.shields.io/badge/day%20📅-15-blue)
+![](https://img.shields.io/badge/stars%20⭐-14-yellow)
+![](https://img.shields.io/badge/days%20completed-7-red)
 
 Repository of solutions for the [Advent of Code 2021][4] done by [Canario0][1]
 
