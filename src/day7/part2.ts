@@ -6,12 +6,10 @@ export function solve(crabPositions: number[]): number {
   const maxLine = crabPositions.at(-1);
   const fuel = [...range(minLine, maxLine)].map((line) =>
     crabPositionsSorted
-      .map((crabLine) =>
-        [...range(1, Math.abs(crabLine - line) + 1)].reduce(
-          (acc, val) => acc + val,
-          0
-        )
-      )
+      .map((crabLine) => {
+        const lineDiff = Math.abs(crabLine - line);
+        return (lineDiff * (lineDiff + 1)) / 2;
+      })
       .reduce((acc, fuel) => acc + fuel, 0)
   );
   return Math.min(...fuel);
